@@ -18,7 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".ChatBotRamuActivity"></activity>
+        <activity android:name=".ChatBotMithilaActivity" />
+        <activity android:name=".ChatBotAmitActivity" />
+        <activity android:name=".TestActivity" />
         <activity android:name=".WebViewActivity" />
         <activity
             android:name=".HomeActivity"
@@ -35,7 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatBotAliceActivity" />
+        <activity android:name=".ChatBotVijayActivity" />
     </application>
 
 </manifest>

@@ -7,10 +7,52 @@
     tools:context=".HomeActivity">
 
 
-    <Button
-        android:id="@+id/openCameraButton"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="openWebViewActivity"
-        android:text="Go to Interrogation Room" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/openCameraButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openWebViewActivity"
+            android:text="Go to Interrogation Room" />
+
+        <Button
+            android:id="@+id/vijayChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openVijayActivity"
+            android:text="Chat with Vijay"
+            />
+
+        <Button
+            android:id="@+id/ajayChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openAmitActivity"
+            android:text="Chat with Amit"
+            />
+
+        <Button
+            android:id="@+id/mithilaChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openMithilaActivity"
+            android:text="Chat with Mithila"
+            />
+
+        <Button
+            android:id="@+id/ramuChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openRamuActivity"
+            android:text="Chat with Ramu"
+            />
+
+
+    </LinearLayout>
+
+
 </android.support.design.widget.CoordinatorLayout>

@@ -25,4 +25,30 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    public void openVijayActivity(View view)
+    {
+        startActivity(new Intent(this, ChatBotVijayActivity.class));
+
+    }
+
+    public void openAmitActivity(View view)
+    {
+        startActivity(new Intent(this, ChatBotAmitActivity.class));
+
+    }
+
+    public void openMithilaActivity(View view)
+    {
+        startActivity(new Intent(this, ChatBotMithilaActivity.class));
+
+    }
+
+    public void openRamuActivity(View view)
+    {
+        startActivity(new Intent(this, ChatBotRamuActivity.class));
+
+    }
+
+
+
 }

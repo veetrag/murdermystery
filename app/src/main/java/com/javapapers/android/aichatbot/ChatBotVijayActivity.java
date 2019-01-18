@@ -15,12 +15,16 @@ import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
 import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
-public class ChatBotAliceActivity extends AppCompatActivity {
+import java.util.Map;
 
-    private static final String TAG = "ChatBotAliceActivity";
+public class ChatBotVijayActivity extends AppCompatActivity {
+
+    private static final String TAG = "ChatBotVijayActivity";
     private final String IBM_USERNAME = "apikey";
     private final String API_KEY = "DLlTMNs11SNfA2aBHOQhVt3f7fTqYhEDJZ4_kW9TcWfR";
-    private final String IBM_WORKSPACE_ID = "2be604ad-071e-4301-a0f2-51eb7c39e010";
+    private final String IBM_WORKSPACE_ID = "2e78a876-6e33-4996-9b2b-9638c39f1eac";
+
+    Map<String, Object> context = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +54,9 @@ public class ChatBotAliceActivity extends AppCompatActivity {
                     // Clear edittext
                     userInput.setText("");
 
+
                     MessageRequest request = new MessageRequest.Builder()
-                            .inputText(inputText)
+                            .inputText(inputText).context(context)
                             .build();
 
                     myConversationService
@@ -59,6 +64,8 @@ public class ChatBotAliceActivity extends AppCompatActivity {
                             .enqueue(new ServiceCallback<MessageResponse>() {
                                 @Override
                                 public void onResponse(MessageResponse response) {
+
+                                    context = response.getContext();
 
                                  //   Log.i("ChatBot Test",response.getText().get(0));
 
