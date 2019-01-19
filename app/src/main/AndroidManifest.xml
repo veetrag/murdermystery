@@ -18,11 +18,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChatBotRamuActivity"></activity>
-        <activity android:name=".ChatBotMithilaActivity" />
-        <activity android:name=".ChatBotAmitActivity" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".WebViewActivity" />
+        <activity android:name=".ThirdIntroActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".SecondIntroActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".FirstIntroActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ChatBotRamuActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ChatBotMithilaActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ChatBotAmitActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".TestActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".WebViewActivity" android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
@@ -31,7 +35,7 @@
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,6 +43,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChatBotVijayActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

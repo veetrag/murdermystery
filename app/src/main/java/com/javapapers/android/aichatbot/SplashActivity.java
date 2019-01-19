@@ -21,14 +21,19 @@ public class SplashActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash);
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                moveNext();
+            }
+        }, 3500);
 
     }
 
 
-
-    public void moveNext(View view)
+    public void moveNext()
     {
-        startActivity(new Intent(this, HomeActivity.class));
+        startActivity(new Intent(this, FirstIntroActivity.class));
 
     }
 
