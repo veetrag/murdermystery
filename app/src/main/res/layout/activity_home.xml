@@ -4,55 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:background="#161616">
 
 
-    <LinearLayout
+
+        <!--<Button-->
+            <!--android:id="@+id/openCameraButton"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="openWebViewActivity"-->
+            <!--android:text="Go to Interrogation Room" />-->
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="130dp"
+        android:fontFamily="@font/space_mono"
+        android:text="Let's Interrogate \n our suspects"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="32sp" />
 
-        <Button
-            android:id="@+id/openCameraButton"
+
+
+
+
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="openWebViewActivity"
-            android:text="Go to Interrogation Room" />
-
-        <Button
-            android:id="@+id/vijayChat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="openVijayActivity"
-            android:text="Chat with Vijay"
-            />
-
-        <Button
-            android:id="@+id/ajayChat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="openAmitActivity"
-            android:text="Chat with Amit"
-            />
-
-        <Button
-            android:id="@+id/mithilaChat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="openMithilaActivity"
-            android:text="Chat with Mithila"
-            />
-
-        <Button
-            android:id="@+id/ramuChat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="openRamuActivity"
-            android:text="Chat with Ramu"
-            />
+            android:layout_height="match_parent"
+            >
 
 
-    </LinearLayout>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="160dp"
+                android:paddingBottom="20dp">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_column="1"
+                    android:src="@drawable/suspect_1"
+                    android:paddingRight="20dp"/>
+
+                <Button
+                    android:id="@+id/vijayChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/space_mono"
+                    android:onClick="openVijayActivity"
+
+
+                    android:text="Chat with Vijay" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingBottom="20dp"
+                >
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_column="1"
+                    android:src="@drawable/suspect_2"
+                    android:paddingRight="20dp" />
+
+                <Button
+                    android:id="@+id/ajayChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/space_mono"
+                    android:onClick="openAmitActivity"
+                    android:text="Chat with Amit" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingBottom="20dp">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_column="1"
+                    android:src="@drawable/suspect_3"
+                    android:paddingRight="20dp"/>
+
+                <Button
+                    android:id="@+id/mithilaChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:fontFamily="@font/space_mono"
+                    android:onClick="openMithilaActivity"
+                    android:text="Chat with Mithila" />
+            </TableRow>
+
+        </TableLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

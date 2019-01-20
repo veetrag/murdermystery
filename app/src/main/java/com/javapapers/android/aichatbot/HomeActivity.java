@@ -19,11 +19,11 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void openWebViewActivity(View view)
-    {
-        startActivity(new Intent(this, TestActivity.class));
-
-    }
+//    public void openWebViewActivity(View view)
+//    {
+//        startActivity(new Intent(this, TestActivity.class));
+//
+//    }
 
     public void openVijayActivity(View view)
     {
@@ -43,11 +43,11 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void openRamuActivity(View view)
-    {
-        startActivity(new Intent(this, ChatBotRamuActivity.class));
-
-    }
+//    public void openRamuActivity(View view)
+//    {
+//        startActivity(new Intent(this, ChatBotRamuActivity.class));
+//
+//    }
 
 
 
