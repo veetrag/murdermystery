@@ -1,116 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    android:background="#161616">
-
-
-
-        <!--<Button-->
-            <!--android:id="@+id/openCameraButton"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:onClick="openWebViewActivity"-->
-            <!--android:text="Go to Interrogation Room" />-->
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:fontFamily="@font/space_mono"
-        android:text="Let's Interrogate \n our suspects"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/advent_pro_bold"
+        android:text="Let's interrogate\nour suspects"
         android:textAlignment="center"
         android:textColor="#FFF"
         android:textSize="32sp" />
-
-
-
-
-
-        <TableLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-
-
-            <TableRow
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_column="1"
+                android:src="@drawable/suspect_3"
+                android:paddingRight="20dp"/>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_marginTop="160dp"
-                android:paddingBottom="20dp">
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_column="1"
-                    android:src="@drawable/suspect_1"
-                    android:paddingRight="20dp"/>
-
-                <Button
-                    android:id="@+id/vijayChat"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_column="2"
+                    android:text="Name"
                     android:fontFamily="@font/space_mono"
-                    android:onClick="openVijayActivity"
+                    android:textColor="@color/grey"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Amit\nPatnaik"
+                    android:fontFamily="@font/space_mono"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp"/>
+                <Button
+                    android:id="@+id/talkToAmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Let's talk"
+                    style="@style/ButtonWhiteTransaparent"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    />
+            </LinearLayout>
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_column="1"
+                android:src="@drawable/suspect_2"
+                android:paddingRight="20dp" />
 
-                    android:text="Chat with Vijay" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingBottom="20dp"
-                >
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_column="1"
-                    android:src="@drawable/suspect_2"
-                    android:paddingRight="20dp" />
-
-                <Button
-                    android:id="@+id/ajayChat"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_column="2"
+                    android:text="Name"
                     android:fontFamily="@font/space_mono"
-                    android:onClick="openAmitActivity"
-                    android:text="Chat with Amit" />
-            </TableRow>
+                    android:textColor="@color/grey"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mithila\nShetty"
+                    android:fontFamily="@font/space_mono"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp"/>
+                <Button
+                    android:id="@+id/talkToMithila"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Let's talk"
+                    style="@style/ButtonWhiteTransaparent"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_column="1"
+                android:src="@drawable/suspect_1"
+                android:paddingRight="20dp"/>
 
-
-            <TableRow
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingBottom="20dp">
-
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_column="1"
-                    android:src="@drawable/suspect_3"
-                    android:paddingRight="20dp"/>
-
-                <Button
-                    android:id="@+id/mithilaChat"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_column="2"
+                    android:text="Name"
                     android:fontFamily="@font/space_mono"
-                    android:onClick="openMithilaActivity"
-                    android:text="Chat with Mithila" />
-            </TableRow>
+                    android:textColor="@color/grey"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vijay Johnson\nThakur"
+                    android:fontFamily="@font/space_mono"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp"/>
+                <Button
+                    android:id="@+id/talkToVijay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Let's talk"
+                    style="@style/ButtonWhiteTransaparent"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"/>
+            </LinearLayout>
+        </LinearLayout>
 
-        </TableLayout>
 
+    </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+    <Button
+        android:id="@+id/chooseMurderer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I know the murderer"
+        style="@style/ButtonAccent"
+        android:textAllCaps="false"
+        android:fontFamily="@font/space_mono"/>
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/space_mono"
+        android:text="Choose Murderer"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="32sp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_column="1"
+                android:src="@drawable/suspect_3"
+                android:paddingRight="20dp"/>
+
+            <Button
+                android:id="@+id/frameAmit"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:fontFamily="@font/space_mono"
+                android:text="Frame Amit" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_column="1"
+                android:src="@drawable/suspect_2"
+                android:paddingRight="20dp" />
+            <Button
+                android:id="@+id/frameMithila"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/space_mono"
+                android:onClick="openMithilaActivity"
+                android:text="Frame Mithila" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_column="1"
+                android:src="@drawable/suspect_1"
+                android:paddingRight="20dp"/>
+            <Button
+                android:id="@+id/frameVijay"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:fontFamily="@font/space_mono"
+                android:text="Frame Vijay" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

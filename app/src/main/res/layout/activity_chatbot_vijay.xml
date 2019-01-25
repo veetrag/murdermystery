@@ -3,35 +3,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context="com.javapapers.android.aichatbot.ChatBotVijayActivity">
+    tools:context="com.javapapers.android.aichatbot.ChatBotVijayActivity"
+    android:background="#EFEFEF">
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/user_input_container">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/conversation"
-            android:textSize="16sp"
-            />
-    </ScrollView>
-
-    <android.support.design.widget.TextInputLayout
+    <LinearLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/user_input_container">
-        <EditText
+        android:orientation="horizontal"
+        android:background="@color/black_overlay">
+        <Button
+            android:id="@+id/v_hint1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hint 1"
+            />
+        <Button
+            android:id="@+id/v_hint2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hint 2"
+            />
+    </LinearLayout>
+    <ScrollView
+        android:id="@+id/chatScrollLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/user_input_container"
+        android:layout_below="@+id/buttonLayout">
+        <LinearLayout
+            android:id="@+id/chatLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Message"
-            android:id="@+id/user_input"
-            android:imeOptions="actionDone"
-            android:inputType="textShortMessage"/>
-    </android.support.design.widget.TextInputLayout>
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/user_input_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Message"
+                android:id="@+id/user_input"
+                android:imeOptions="actionDone"
+                android:inputType="textShortMessage"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/send_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send"/>
+    </LinearLayout>
+
 </RelativeLayout>
 
 

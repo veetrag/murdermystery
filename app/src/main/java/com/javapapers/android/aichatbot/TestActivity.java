@@ -1,15 +1,20 @@
 package com.javapapers.android.aichatbot;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
 import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.List;
@@ -19,7 +24,10 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class TestActivity extends AppCompatActivity implements
         EasyPermissions.PermissionCallbacks{
 
+    public static String ON_COLLECT = "ON_COLLECT";
+
     WebView myWebView;
+    Button collectObject;
 
     private String TAG = "TEST";
     private PermissionRequest mPermissionRequest;
@@ -31,14 +39,36 @@ public class TestActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_home);
+
+
+        collectObject = new Button(this);
 
         myWebView  = new WebView(this);
+//        myWebView  = findViewById(R.id.ar_view);
 
-        myWebView.getSettings().setJavaScriptEnabled(true);
-        myWebView.getSettings().setAllowFileAccessFromFileURLs(true);
-        myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+        WebSettings webSettings = myWebView.getSettings();
 
-        //myWebView.setWebViewClient(new WebViewClient());
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setAllowFileAccessFromFileURLs(true);
+        webSettings.setAllowUniversalAccessFromFileURLs(true);
+
+        // Add the interface to record javascript events
+        myWebView.addJavascriptInterface(new Object()
+        {
+            @JavascriptInterface
+            public void performClick()
+            {
+                Log.i("Logging", "Button clicked");
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra(ON_COLLECT, true);
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+
+            }
+        }, "collect");
+
+
         myWebView.setWebChromeClient(new WebChromeClient() {
             // Grant permissions for cam
             @Override
@@ -93,6 +123,7 @@ public class TestActivity extends AppCompatActivity implements
                     REQUEST_CAMERA_PERMISSION,
                     PERM_CAMERA);
         }
+
 
     }
 

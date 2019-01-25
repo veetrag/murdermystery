@@ -18,31 +18,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ThirdIntroActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".SecondIntroActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".FirstIntroActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ChatBotRamuActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ChatBotMithilaActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ChatBotAmitActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".TestActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".WebViewActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".MurdererRevealActivity"></activity>
+        <activity android:name=".ChooseMurderer">
 
+        </activity>
+        <activity android:name=".ThirdIntroActivity" />
+        <activity android:name=".SecondIntroActivity" />
+        <activity android:name=".FirstIntroActivity" />
+        <activity android:name=".ChatBotRamuActivity" />
+        <activity android:name=".ChatBotMithilaActivity" />
+        <activity android:name=".ChatBotAmitActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".WebViewActivity" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SplashActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_splash"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_home" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChatBotVijayActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splash"></activity>
+        <activity
+            android:name=".ChatBotVijayActivity"
+            android:label="Vijay"
+            android:windowSoftInputMode="stateAlwaysVisible" />
 
         <meta-data
             android:name="preloaded_fonts"
