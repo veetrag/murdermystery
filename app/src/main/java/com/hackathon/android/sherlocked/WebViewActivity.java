@@ -1,4 +1,4 @@
-package com.javapapers.android.aichatbot;
+package com.hackathon.android.sherlocked;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.javapapers.android.aichatbot;
+package com.hackathon.android.sherlocked;
 
 import org.junit.Test;
 

@@ -1,15 +1,13 @@
-package com.javapapers.android.aichatbot;
+package com.hackathon.android.sherlocked;
 
-
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-
 
 import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
@@ -18,20 +16,18 @@ import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
 import java.util.Map;
 
+public class ChatBotMithilaActivity extends AppCompatActivity {
 
-public class ChatBotAmitActivity extends AppCompatActivity {
-
-    private static final String TAG = "ChatBotAjayActivity";
+    private static final String TAG = "ChatBotMithilaActivity";
     private final String IBM_USERNAME = "apikey";
     private final String API_KEY = "DLlTMNs11SNfA2aBHOQhVt3f7fTqYhEDJZ4_kW9TcWfR";
-    private final String IBM_WORKSPACE_ID = "720c8f5e-3d5c-4450-8f8c-b7ef84e0aeed";
+    private final String IBM_WORKSPACE_ID = "c2ec746e-ca0b-4e23-a52e-24ab33fcf7b0";
     Map<String, Object> context = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatbot_amit);
+        setContentView(R.layout.activity_chatbot_mithila);
 
         final ConversationService myConversationService =
                 new ConversationService(
@@ -94,4 +90,3 @@ public class ChatBotAmitActivity extends AppCompatActivity {
     }
 
 }
-

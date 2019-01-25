@@ -1,13 +1,15 @@
-package com.javapapers.android.aichatbot;
+package com.hackathon.android.sherlocked;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+
 
 import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
@@ -16,18 +18,20 @@ import com.ibm.watson.developer_cloud.http.ServiceCallback;
 
 import java.util.Map;
 
-public class ChatBotRamuActivity extends AppCompatActivity {
 
-    private static final String TAG = "ChatBotRamuActivity";
+public class ChatBotAmitActivity extends AppCompatActivity {
+
+    private static final String TAG = "ChatBotAjayActivity";
     private final String IBM_USERNAME = "apikey";
     private final String API_KEY = "DLlTMNs11SNfA2aBHOQhVt3f7fTqYhEDJZ4_kW9TcWfR";
-    private final String IBM_WORKSPACE_ID = "70ba19fd-1f9c-4e55-bb72-923fd3b3e853";
+    private final String IBM_WORKSPACE_ID = "720c8f5e-3d5c-4450-8f8c-b7ef84e0aeed";
     Map<String, Object> context = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatbot_ramu);
+        setContentView(R.layout.activity_chatbot_amit);
 
         final ConversationService myConversationService =
                 new ConversationService(
@@ -61,7 +65,6 @@ public class ChatBotRamuActivity extends AppCompatActivity {
                             .enqueue(new ServiceCallback<MessageResponse>() {
                                 @Override
                                 public void onResponse(MessageResponse response) {
-
                                     context = response.getContext();
                                     //   Log.i("ChatBot Test",response.getText().get(0));
 
@@ -91,3 +94,4 @@ public class ChatBotRamuActivity extends AppCompatActivity {
     }
 
 }
+
