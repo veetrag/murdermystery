@@ -20,10 +20,12 @@
             android:orientation="horizontal"
             android:padding="8dp">
             <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/suspectImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/suspect_1"/>
             <TextView
+                android:id="@+id/suspectName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vijay"
@@ -37,12 +39,6 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="Hint 1"
-            />
-        <Button
-            android:id="@+id/v_hint2"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="Hint 2"
             />
     </LinearLayout>
     <ScrollView

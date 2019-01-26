@@ -18,21 +18,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.hackathon.android.sherlocked.MurdererRevealActivity"></activity>
-        <activity android:name="com.hackathon.android.sherlocked.ChooseMurderer">
+        <activity android:name=".ChatActivity">
 
         </activity>
-        <activity android:name="com.hackathon.android.sherlocked.ThirdIntroActivity" />
-        <activity android:name="com.hackathon.android.sherlocked.SecondIntroActivity" />
-        <activity android:name="com.hackathon.android.sherlocked.FirstIntroActivity" />
-        <activity android:name="com.hackathon.android.sherlocked.ChatBotRamuActivity" />
-        <activity android:name="com.hackathon.android.sherlocked.ChatBotMithilaActivity" />
-        <activity android:name="com.hackathon.android.sherlocked.ChatBotAmitActivity" />
-        <activity android:name="com.hackathon.android.sherlocked.TestActivity" />
-        <activity android:name="com.hackathon.android.sherlocked.WebViewActivity" />
+        <activity android:name=".SuspectIntroActivity">
+
+        </activity>
+        <activity android:name=".MurdererRevealActivity" />
+        <activity android:name=".ChooseMurderer" />
+        <activity android:name=".ThirdIntroActivity" />
+        <activity android:name=".SecondIntroActivity" />
+        <activity android:name=".FirstIntroActivity" />
+        <activity android:name=".ChatBotRamuActivity" />
+        <activity android:name=".ChatBotMithilaActivity" />
+        <activity android:name=".ChatBotAmitActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".WebViewActivity" />
         <activity
-            android:name="com.hackathon.android.sherlocked.HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,11 +44,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hackathon.android.sherlocked.SplashActivity"
+            android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_splash"></activity>
+            android:label="@string/title_activity_splash" />
         <activity
-            android:name="com.hackathon.android.sherlocked.ChatBotVijayActivity"
+            android:name=".ChatBotVijayActivity"
             android:label="Vijay"
             android:windowSoftInputMode="stateAlwaysVisible" />
 

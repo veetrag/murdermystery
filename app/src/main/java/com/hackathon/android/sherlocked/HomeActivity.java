@@ -27,18 +27,22 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void openVijayActivity()
     {
-        startActivity(new Intent(this, ChatBotVijayActivity.class));
-
+        Intent intent = new Intent(this, SuspectIntroActivity.class);
+        intent.putExtra("suspectId", getResources().getInteger(R.integer.vijay_id));
+        startActivity(intent);
     }
     public void openAmitActivity()
     {
-        startActivity(new Intent(this, ChatBotAmitActivity.class));
+        Intent intent = new Intent(this, SuspectIntroActivity.class);
+        intent.putExtra("suspectId", getResources().getInteger(R.integer.amit_id));
+        startActivity(intent);
 
     }
     public void openMithilaActivity()
     {
-        startActivity(new Intent(this, ChatBotMithilaActivity.class));
-
+        Intent intent = new Intent(this, SuspectIntroActivity.class);
+        intent.putExtra("suspectId", getResources().getInteger(R.integer.mithila_id));
+        startActivity(intent);
     }
 
     @Override

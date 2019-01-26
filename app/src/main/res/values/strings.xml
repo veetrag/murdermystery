@@ -5,4 +5,13 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_home">HomeActivity</string>
+
+
+    <integer name="amit_id">1</integer>
+    <integer name="mithila_id">2</integer>
+    <integer name="vijay_id">3</integer>
+
+    <string name="amit_ibm_workspace_id">720c8f5e-3d5c-4450-8f8c-b7ef84e0aeed</string>
+    <string name="mithila_ibm_workspace_id">c2ec746e-ca0b-4e23-a52e-24ab33fcf7b0</string>
+    <string name="vijay_ibm_workspace_id">2e78a876-6e33-4996-9b2b-9638c39f1eac</string>
 </resources>

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
@@ -23,6 +24,7 @@ public class ChatBotMithilaActivity extends AppCompatActivity {
     private final String API_KEY = "DLlTMNs11SNfA2aBHOQhVt3f7fTqYhEDJZ4_kW9TcWfR";
     private final String IBM_WORKSPACE_ID = "c2ec746e-ca0b-4e23-a52e-24ab33fcf7b0";
     Map<String, Object> context = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/space_mono"
-        android:text="Choose Murderer"
+        android:text="Choose the murderer"
         android:textAlignment="center"
         android:textColor="#FFF"
         android:textSize="32sp"
@@ -40,8 +40,8 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:fontFamily="@font/space_mono"
-                android:text="Frame Amit" />
+                android:text="Frame Amit"
+                style="@style/ButtonWhiteTransaparent"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,9 +59,9 @@
                 android:id="@+id/frameMithila"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/space_mono"
                 android:onClick="openMithilaActivity"
-                android:text="Frame Mithila" />
+                android:text="Frame Mithila"
+                style="@style/ButtonWhiteTransaparent"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,8 +80,8 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:fontFamily="@font/space_mono"
-                android:text="Frame Vijay" />
+                android:text="Frame Vijay"
+                style="@style/ButtonWhiteTransaparent"/>
         </LinearLayout>
 
 
