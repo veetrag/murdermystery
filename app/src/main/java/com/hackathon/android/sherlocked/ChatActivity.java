@@ -3,6 +3,7 @@ package com.hackathon.android.sherlocked;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
@@ -22,6 +23,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.hackathon.android.sherlocked.networking.Networking;
+import com.hackathon.android.sherlocked.util.Preferences;
 import com.ibm.watson.developer_cloud.conversation.v1.ConversationService;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageRequest;
 import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
@@ -38,6 +41,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     private final String API_KEY = "DLlTMNs11SNfA2aBHOQhVt3f7fTqYhEDJZ4_kW9TcWfR";
     private String IBM_WORKSPACE_ID;
 
+    private int suspectId;
 
     Map<String, Object> context = null;
     Button hint1, send_reply;
@@ -46,9 +50,16 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     GradientDrawable border;
     EditText userInput;
     ImageView suspectImage;
-    TextView suspectName;
+    TextView suspectName, scoreText;
     ConversationService myConversationService;
     String name;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    int score;
+    boolean status;
+    String uEmail, uName, uProfileImage;
+    boolean showClueButton = false;
+    int numberOfResponses = 0;
 
     LinearLayout.LayoutParams param1 = new LinearLayout.LayoutParams(
             0,
@@ -66,6 +77,12 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             ViewGroup.LayoutParams.WRAP_CONTENT
     );
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        scoreText.setText(pref.getInt(Preferences.USER_SCORE, 0)+"");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +91,16 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
         suspectImage = findViewById(R.id.suspectImage);
         suspectName = findViewById(R.id.suspectName);
+        scoreText = findViewById(R.id.scoreText);
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
+
+        uEmail = pref.getString(Preferences.EMAIL, "");
+        uName = pref.getString(Preferences.NAME, "");
+        uProfileImage = pref.getString(Preferences.PROFILE_IMAGE, "");
+
+        scoreText.setText(pref.getInt(Preferences.USER_SCORE, 0)+"");
 
 
         myConversationService =
@@ -96,7 +123,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         hint1.setOnClickListener(this);
 
         Intent intent = getIntent();
-        int suspectId = intent.getIntExtra("suspectId", 0);
+        suspectId = intent.getIntExtra("suspectId", 0);
         if (suspectId == getResources().getInteger(R.integer.amit_id)) {
             IBM_WORKSPACE_ID = getResources().getString(R.string.amit_ibm_workspace_id);
             suspectImage.setImageDrawable(getResources().getDrawable(R.drawable.suspect_1));
@@ -164,7 +191,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         ctv1.setTypeface(null, Typeface.BOLD);
         TextView ctv2 = new TextView(ChatActivity.this);
         ctv2.setText(inputText);
-        ctv2.setTypeface(Typeface.create("space_mono", Typeface.BOLD));
+        ctv2.setTypeface(Typeface.create("space_mono", Typeface.NORMAL));
         ll.addView(ctv1);
         ll.addView(ctv2);
 
@@ -190,12 +217,64 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onResponse(MessageResponse response) {
 
-                        context = response.getContext();
+                        numberOfResponses++;
 
+                        context = response.getContext();
                         final String outputText = response.getText().get(0);
+
+                        String[] aResponses = getResources().getStringArray(R.array.amit_responses);
+                        String[] mResponses = getResources().getStringArray(R.array.mithila_responses);
+                        String[] vResponses = getResources().getStringArray(R.array.vijay_responses);
+
+                        status = false;
+                        if (suspectId == 1){
+                            for (int i=0; i<aResponses.length; i++) {
+                                if (outputText.contains(aResponses[i]) && !pref.getBoolean(Preferences.AMIT_RESPONSES+i, false)) {
+                                    score  = pref.getInt(Preferences.USER_SCORE, -1);
+                                    editor.putBoolean(Preferences.AMIT_RESPONSES+i, true);
+                                    editor.commit();
+                                    editor.putInt(Preferences.USER_SCORE,score+25);
+                                    editor.commit();
+                                    new Networking().storeScore(uEmail, uName, score+25);
+                                    status = true;
+                                }
+                            }
+                        }
+                        if (suspectId == 2){
+                            for (int i=0; i<mResponses.length; i++) {
+                                if (outputText.contains(mResponses[i]) && !pref.getBoolean(Preferences.MITHILA_RESPONSES+i, false)) {
+                                    score  = pref.getInt(Preferences.USER_SCORE, -1);
+                                    editor.putBoolean(Preferences.MITHILA_RESPONSES+i, true);
+                                    editor.commit();
+                                    editor.putInt(Preferences.USER_SCORE,score+25);
+                                    editor.commit();
+                                    status = true;
+                                    new Networking().storeScore(uEmail, uName, score+25);
+                                }
+                            }
+                        }
+                        if (suspectId == 3){
+                            for (int i=0; i<vResponses.length; i++) {
+                                if (outputText.contains(vResponses[i]) && !pref.getBoolean(Preferences.VIJAY_RESPONSES+i, false)) {
+                                    score  = pref.getInt(Preferences.USER_SCORE, -1);
+                                    editor.putBoolean(Preferences.VIJAY_RESPONSES+i, true);
+                                    editor.commit();
+                                    editor.putInt(Preferences.USER_SCORE,score+25);
+                                    editor.commit();
+                                    status = true;
+                                    new Networking().storeScore(uEmail, uName, score+25);
+                                }
+                            }
+                        }
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+
+                                if (status) {
+                                    scoreText.setText((score+25)+"");
+                                }
+
 
                                 LinearLayout ll_row = new LinearLayout(ChatActivity.this);
                                 ll_row.setOrientation(LinearLayout.HORIZONTAL);
@@ -221,7 +300,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                                 ctv1.setTextColor(getResources().getColor(R.color.colorAccent));
                                 TextView ctv2 = new TextView(ChatActivity.this);
                                 ctv2.setText(outputText);
-                                ctv1.setTypeface(Typeface.create("space_mono", Typeface.BOLD));
+                                ctv2.setTypeface(Typeface.create("space_mono", Typeface.NORMAL));
                                 ll.addView(ctv1);
                                 ll.addView(ctv2);
 
@@ -232,10 +311,14 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
                                 // Scroll to the bottom automatically
                                 chatScrollLayout.fullScroll(View.FOCUS_DOWN);
+
+                                if (numberOfResponses >= 8) {
+                                    hint1.setVisibility(View.VISIBLE);
+                                } else {
+                                    hint1.setVisibility(View.GONE);
+                                }
                             }
                         });
-
-
                     }
 
                     @Override
@@ -252,9 +335,14 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.v_hint1:
                 intent = new Intent(ChatActivity.this, TestActivity.class);
+                if (suspectId == 1) {
+                    intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint1.html");
+                }if (suspectId == 2) {
+                    intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint2.html");
+                }if (suspectId == 3) {
+                    intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint3.html");
+                }
                 startActivityForResult(intent, intent_constant);
-                break;
-            case R.id.v_hint2:
                 break;
         }
     }
@@ -268,6 +356,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                     Boolean collected = data.getBooleanExtra(TestActivity.ON_COLLECT, false);
                     if (collected) {
                         showClueDialog();
+                        hint1.setVisibility(View.GONE);
                     }
                 }
                 break;
@@ -276,6 +365,16 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void showClueDialog() {
+        String message = "";
+        if (suspectId == 1) {
+            message = "The CCTV camera at Raghu's office premises has found Amit talking to and taking something from Raghu's driver on the  morning of Raghu's death. What could it have been? ask Amit about it.";
+        }
+        if (suspectId == 2) {
+            message = "We have yet another clue for you. We just found out that Mithila had hired a private detective to follow Raghu. You may want to know her reasons to hire a detective to follow her own husband. Ask Mithila.";
+        }
+        if (suspectId == 3) {
+            message = "We have just got a log of Raghu's phone records. Raghu had picked a call from Vijay at 8:25 PM on the evening of his death. The call lasted for 22 minutes. Go, ahead, ask Vijay about the call.";
+        }
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
@@ -283,7 +382,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             builder = new AlertDialog.Builder(this);
         }
         builder.setTitle("Clue")
-                .setMessage("Here is a small clue for you to continue...")
+                .setMessage("message")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete

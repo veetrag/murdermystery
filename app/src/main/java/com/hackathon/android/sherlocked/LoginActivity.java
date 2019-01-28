@@ -2,8 +2,9 @@ package com.hackathon.android.sherlocked;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -15,8 +16,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.hackathon.android.sherlocked.util.Preferences;
 
 public class LoginActivity extends AppCompatActivity {
+
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
     private SignInButton googleSignInButton;
     private GoogleSignInClient googleSignInClient;
@@ -25,6 +30,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
 
         googleSignInButton = findViewById(R.id.sign_in_button);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -48,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             switch (requestCode) {
-                case 101:
+                case 1:
                     try {
                         // The Task returned from this call is always completed, no need to attach
                         // a listener.
@@ -66,12 +74,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, StoryActivity.class);
         // intent.putExtra(ProfileActivity.GOOGLE_ACCOUNT, googleSignInAccount);
 
         Log.i("Photo Link", googleSignInAccount.getPhotoUrl().toString());
         Log.i("Photo Link", googleSignInAccount.getDisplayName());
         Log.i("Photo Link", googleSignInAccount.getEmail());
+
+        editor.putString(Preferences.EMAIL, googleSignInAccount.getEmail());
+        editor.commit();
+        editor.putString(Preferences.NAME, googleSignInAccount.getDisplayName());
+        editor.commit();
+        editor.putString(Preferences.PROFILE_IMAGE, googleSignInAccount.getPhotoUrl().toString());
+        editor.commit();
 
         startActivity(intent);
         finish();

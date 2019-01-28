@@ -1,11 +1,15 @@
 <resources>
-    <string name="app_name">AI Chat Bot</string>
+    <string name="app_name">Sherlocked</string>
+
+    <string name="server_client_id">873900882802-ri5r20s5d5dfv777eqqpd02fk6v7f9ha.apps.googleusercontent.com</string>
 
     <string name="title_activity_splash">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_home">HomeActivity</string>
 
+    <string name="email">b11@g.com</string>
+    <string name="name">Balu11</string>
 
     <integer name="amit_id">1</integer>
     <integer name="mithila_id">2</integer>
@@ -14,4 +18,41 @@
     <string name="amit_ibm_workspace_id">720c8f5e-3d5c-4450-8f8c-b7ef84e0aeed</string>
     <string name="mithila_ibm_workspace_id">c2ec746e-ca0b-4e23-a52e-24ab33fcf7b0</string>
     <string name="vijay_ibm_workspace_id">2e78a876-6e33-4996-9b2b-9638c39f1eac</string>
+
+    <string-array name="amit_responses">
+        <item>Raghu was one of the best hackers I had hired and a rockstar in my team. I was shocked when I heard about his death.</item>
+        <item>I have been Raghu\'s boss for more than 10 years now. He was like family, he often came home and spent time with me and my family. His wife Mithila is also very close to all of us at home you know. I had no issues with him.</item>
+        <item>I am part of the surveillance squad. I handle a team talented hackers.</item>
+        <item>Hmm.... I was home with my daughter and wife. Later I dropped them to my sisters place.</item>
+        <item>I met him recently at work and discussed normal business with him.</item>
+        <item>I think Vijay had threatened Raghu a couple of times regarding the data and funds exposure everyone was talking about.</item>
+        <item>I have an amazing wife and a beautiful daughter who is just 20 years old. We were all fond of Raghu and Mridula.</item>
+        <item>How can you say that? Raghu was like a son to me.</item>
+        <item>I don\'t know who or why someone did it.</item>
+        <item>I guess he was just bored. I\'m really not sure.</item>
+        <item>Raghu was a brilliant hacker. As a person he was proud of his abilities. A little too proud I might say.</item>
+        <item>Let me think, I need to recall why I may have spoken to him.... hmmm...</item>
+        <item>How would I know who has his keys?</item>
+    </string-array>
+    <string-array name="mithila_responses">
+        <item>Like any other marriage we had our own issues. But we were trying to work through them.</item>
+        <item>I am sure Raghu had an affair with another women.</item>
+        <item>In the past year, Raghu had become very different. He had been returning late, he smelt different, he talked differently. We talked less and less. He stopped sharing things with me.</item>
+        <item>I wanted to save my marriage. I had given up a lot for this marriage - my parents, my job, my happiness. But I really did not want to lose my pride. That\'s why I hired a detective.</item>
+        <item>I was a banker until 2 years ago, when I quit my job to focus on my married life. I wanted to start a family too.</item>
+        <item>Honestly, Raghu hardly spoke about Vijay. In fact, whatever I knew about the scam or about Vijay Johnson was from the news.</item>
+        <item>I was waiting for Raghu at home, after cooking a special meal for him that day. </item>
+        <item>We had 2 keys to the penthouse apartment. One was with Raghu, and the other one was a spare key for emergencies. But I could not find that key.</item>
+        <item>Raghu actually paid attention to me that day, and said how much he loved me after a very long time. Then he said that he wanted to check on the apartment and left the house.</item>
+        <item>Raghu went to check on our penthouse at the new apartment complex after coming home from work. That\'s when I last saw him.</item>
+        <item>Amit Uncle was like a father figure to both me and Raghu. We had a very good relationship with him and his family.</item>
+        <item>Nooooooo. How can you say so? Raghu was my life.</item>
+    </string-array>
+    <string-array name="vijay_responses">
+        <item>I was in Europe having dinner with the Queen. Guess what, Meghan was there too.</item>
+        <item>People like him are inconsequential to me, I refrain from meeting morons.</item>
+        <item>I have run my empire for 25 years and it\'s doing quite well.</item>
+        <item>That coward? What about him?</item>
+        <item>Why are you asking me this? This is outrageous.</item>
+    </string-array>
 </resources>

@@ -30,17 +30,29 @@ public class SuspectIntroActivity extends AppCompatActivity {
         if (suspectId == getResources().getInteger(R.integer.amit_id)) {
             suspectImage.setImageDrawable(getResources().getDrawable(R.drawable.suspect_1));
             suspectName.setText("Amit Patnaik");
-            suspectIntro.setText("He is victim Raghu's boss.");
+            suspectIntro.setText(
+                    "Raghu's boss, best friend and confidant, Amit is on our radar of suspects because he was the closest to Raghu."
+                    + "\n\n"
+                    + "He is extremely smart and quick, ask him the right questions to find out if he had anything to do with Raghu's murder."
+            );
         }
         if (suspectId == getResources().getInteger(R.integer.mithila_id)) {
             suspectImage.setImageDrawable(getResources().getDrawable(R.drawable.suspect_2));
             suspectName.setText("Mithila Shetty");
-            suspectIntro.setText("He is victim Raghu's boss.");
+            suspectIntro.setText(
+                    "A childhood sweetheart turned wife, Mithila is a suspect because her neighbors have heard her verbally abuse Raghu in the wee hours of the night."
+                    + "\n\n"
+                    + "She can bail out of the truth by playing the emotional card, be vary and get to the bottom of the truth, especially about her relationship with Raghu."
+            );
         }
         if (suspectId == getResources().getInteger(R.integer.vijay_id)) {
             suspectImage.setImageDrawable(getResources().getDrawable(R.drawable.suspect_3));
             suspectName.setText("Vijay Johnson Thakur");
-            suspectIntro.setText("He is victim Raghu's boss.");
+            suspectIntro.setText(
+                    "Vijay clearly has a vengeance towards Raghu for his claims against himself. He is irritable, arrogant and spiteful."
+                    + "\n\n"
+                    +"Beware of this multi-millionaire who can rub you-off the wrong way. Prob him with the same questions more than once."
+            );
         }
 
         talkToSuspect.setOnClickListener(new View.OnClickListener() {

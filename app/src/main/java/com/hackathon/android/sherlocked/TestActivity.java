@@ -112,9 +112,10 @@ public class TestActivity extends AppCompatActivity implements
             }
         });
 
-
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
         if(hasCameraPermission()){
-            myWebView.loadUrl("https://dugginenisagar.github.io/arkit-test.github.io/test2.html");
+            myWebView.loadUrl(url);
             setContentView(myWebView );
         }else{
             EasyPermissions.requestPermissions(

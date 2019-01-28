@@ -27,8 +27,8 @@ public class SplashActivity extends AppCompatActivity {
 
     public void moveNext()
     {
-        startActivity(new Intent(this, FirstIntroActivity.class));
-
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 
 }

@@ -32,7 +32,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_column="1"
-                android:src="@drawable/suspect_3"
+                android:src="@drawable/suspect_1"
                 android:paddingRight="20dp"/>
 
             <Button
@@ -73,7 +73,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_column="1"
-                android:src="@drawable/suspect_1"
+                android:src="@drawable/suspect_3"
                 android:paddingRight="20dp"/>
             <Button
                 android:id="@+id/frameVijay"
