@@ -21,8 +21,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Button talkToAmit, talkToMithila, talkToVijay, chooseMurderer, chooseMurdererDisabled;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    TextView scoreText;
     String email, name, profileImage;
+    TextView scoreText;
     @Override
     protected void onStart() {
         super.onStart();

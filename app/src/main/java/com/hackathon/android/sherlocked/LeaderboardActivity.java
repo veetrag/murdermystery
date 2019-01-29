@@ -1,5 +1,6 @@
 package com.hackathon.android.sherlocked;
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
@@ -14,6 +15,7 @@ import com.hackathon.android.sherlocked.networking.APIClient;
 import com.hackathon.android.sherlocked.networking.APIInterface;
 import com.hackathon.android.sherlocked.networking.LUserPojo;
 import com.hackathon.android.sherlocked.networking.LeaderboardPojo;
+import com.hackathon.android.sherlocked.util.Preferences;
 
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class LeaderboardActivity extends AppCompatActivity {
     LinearLayout leaderboardView;
     GradientDrawable border, borderHeading, borderHighlight;
     TextView userScore, userRank;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+    String email, name, profileImage;
 
     LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
@@ -48,6 +53,13 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
+
+        email = pref.getString(Preferences.EMAIL, "");
+        name = pref.getString(Preferences.NAME, "");
+        profileImage = pref.getString(Preferences.PROFILE_IMAGE, "");
+
         leaderboardView = findViewById(R.id.leaderboardView);
         userScore = findViewById(R.id.userScore);
         userRank = findViewById(R.id.userRank);
@@ -65,7 +77,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         borderHighlight.setStroke(1, 0xFFD4D4D4); //black border with full opacity
 
 
-        Call<LeaderboardPojo> call = apiInterface.doGetListResources();
+        Call<LeaderboardPojo> call = apiInterface.doGetListResources(email);
         call.enqueue(new Callback<LeaderboardPojo>() {
             @Override
             public void onResponse(Call<LeaderboardPojo> call, Response<LeaderboardPojo> response) {
