@@ -125,7 +125,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     void setButtonVisibility() {
         int score = pref.getInt(Preferences.USER_SCORE, 0);
         scoreText.setText(score+"");
-        if (score >= 25) {
+        if (score >= 100) {
             chooseMurderer.setVisibility(View.VISIBLE);
             chooseMurdererDisabled.setVisibility(View.GONE);
         } else {
