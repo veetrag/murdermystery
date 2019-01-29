@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -331,20 +332,25 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent intent;
+
         switch (view.getId()) {
             case R.id.v_hint1:
-                intent = new Intent(ChatActivity.this, TestActivity.class);
-                if (suspectId == 1) {
-                    intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint1.html");
-                }if (suspectId == 2) {
-                    intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint2.html");
-                }if (suspectId == 3) {
-                    intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint3.html");
-                }
-                startActivityForResult(intent, intent_constant);
+                showHintDialog();
                 break;
         }
+    }
+
+    void startWebActivity() {
+        Intent intent;
+        intent = new Intent(ChatActivity.this, TestActivity.class);
+        if (suspectId == 1) {
+            intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint1.html");
+        }if (suspectId == 2) {
+            intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint2.html");
+        }if (suspectId == 3) {
+            intent.putExtra("url", "https://dugginenisagar.github.io/arkit-test.github.io/hint3.html");
+        }
+        startActivityForResult(intent, intent_constant);
     }
 
     @Override
@@ -382,7 +388,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             builder = new AlertDialog.Builder(this);
         }
         builder.setTitle("Clue")
-                .setMessage("message")
+                .setMessage(message)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
@@ -390,6 +396,37 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+    }
+    void showHintDialog() {
+
+        AlertDialog.Builder alertadd = new AlertDialog.Builder(ChatActivity.this);
+        LayoutInflater factory = LayoutInflater.from(ChatActivity.this);
+        final View view = factory.inflate(R.layout.hint_marker_dialog, null);
+        ImageView hint_marker_image = view.findViewById(R.id.hint_marker_image);
+        TextView hint_marker_text = view.findViewById(R.id.hint_marker_text);
+
+        if (suspectId == 1) {
+            hint_marker_text.setText("Go to the penthouse apartment (Rajan's Den) to access the clue");
+            hint_marker_image.setImageDrawable(getDrawable(R.drawable.marker2));
+        }
+        if (suspectId == 2) {
+            hint_marker_text.setText("Go to Raghu's house (Malgudi) to find the clue");
+            hint_marker_image.setImageDrawable(getDrawable(R.drawable.marker3));
+        }
+        if (suspectId == 3) {
+            hint_marker_text.setText("Go to the evidence room of the Police station (221B Baker street) to collect the clue");
+            hint_marker_image.setImageDrawable(getDrawable(R.drawable.marker1));
+        }
+
+        alertadd.setView(view);
+        alertadd.setTitle("Clue");
+        alertadd.setNeutralButton("Here!", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dlg, int sumthin) {
+                startWebActivity();
+            }
+        });
+
+        alertadd.show();
     }
 
 }
