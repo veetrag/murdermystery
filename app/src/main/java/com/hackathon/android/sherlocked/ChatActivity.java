@@ -420,7 +420,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
         alertadd.setView(view);
         alertadd.setTitle("Clue");
-        alertadd.setNeutralButton("Here!", new DialogInterface.OnClickListener() {
+        alertadd.setPositiveButton("Show", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dlg, int sumthin) {
                 startWebActivity();
             }
